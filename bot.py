@@ -11,13 +11,9 @@ intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=['청포도 ', 'ㅊ', '청'], intents=intents)
 
 
-# @client.event
-# async def on_ready():
-# print('Is any one there?')
-# print(client.user.name)
-# print(client.user.id)
 
-print("봇 이름:",client.user.name,"봇 아이디:",client.user.id,"봇 버전:",discord.__version__)
+
+
 
 
 playing = cycle(["청포도 도움말을 입력하시면 사용방법을 알려드립니다!", "청포도 도움말을 입력하시면 사용방법을 알려드립니다!", "적포도 게임하지 말라고", "청포도 도움말을 입력하시면 사용방법을 알려드립니다!"])
@@ -27,11 +23,6 @@ async def change_status():
     await bot.change_presence(activity=discord.Game(next(playing)))
 
 
-@bot.event
-async def on_ready():
-    print(bot.user.id)
-    print("ready")
-    change_status.start()
 
 @bot.event
 async def on_member_join(member):
@@ -528,4 +519,4 @@ async def on_command_error(ctx, error):
         await ctx.send(f"짜잔 오류가났습니다```\n{error}\n```")
 
 
-client.run(os.environ['token'])
+bot.run(os.environ['token'])

@@ -4,6 +4,7 @@ import asyncio
 from itertools import cycle
 import datetime
 import random
+import os
 
 
 intents = discord.Intents.all()
@@ -58,7 +59,7 @@ async def hello(ctx):
 
 
 @bot.command(name='링크')
-async def dsbrule(ctx):
+async def dsblink(ctx):
     embed = discord.Embed(color=0xFFC0, title="👥도트러 수다방 하위 링크👥",
                           description="• 도트러 수다방에 관련된 링크를 모아놓은 임베드입니다",
                           url="https://discord.gg/57XGegM")
@@ -165,7 +166,7 @@ async def 기타(ctx):
 
 
 @bot.command(name='도움말')
-async def dsbrule(message):
+async def dsbhelp(message):
 
     embed = discord.Embed(color=0xFFC0, title="🫒 청포도 도움말 🫒",
                           description="청포도봇은 도수방 전용 챗봇입니다")
@@ -183,11 +184,11 @@ async def dsbrule(message):
     await message.channel.send(embed=embed)
 
 @bot.command(name='도움')
-async def hello(ctx):
+async def dsbhelpno(ctx):
     await ctx.send('`청포도 도움말`이에요!!')
 
 @bot.command(name='명령어')
-async def dsbrule(ctx):
+async def dsbcommand(ctx):
         embed = discord.Embed(color=0xFFC0, title="🫒 청포도 명령어 🫒",
                           description="청포도의 모든 명령어")
         embed.set_thumbnail(url=bot.user.avatar_url)
@@ -448,19 +449,19 @@ async def live(ctx):
     await ctx.send('하나.. 둘... 어...?\n(업데이트 예정)')
 
 @bot.command(name='노래가사')
-async def chat(ctx):
+async def music1(ctx):
     await ctx.send('이 봇의 원조? 이자 김승뭔 제작한 `포도`봇에 있던 코드의 패러디입니다')
 
 @bot.command(name='그리워하면')
-async def chat(ctx):
+async def music2(ctx):
     await ctx.send('언젠간 만나게되는')
 
 @bot.command(name='토요일밤에')
-async def chat(ctx):
+async def music3(ctx):
     await ctx.send('바로 그날에')
 
 @bot.command(name='토요일 밤에')#띄어쓰기 어케함
-async def chat(ctx):
+async def music4(ctx):
     await ctx.send('바로 그날에')
 #----------------------------------------------
 
@@ -468,48 +469,48 @@ async def chat(ctx):
 
 
 @bot.command(name='광고')
-async def on_message(message):
-    await message.channel.send('`적포도 광고`를 말해보세요!')
+async def advertisement(ctx):
+    await ctx.send('`적포도 광고`를 말해보세요!')
 
 @bot.command(name='디엠테스트')
-async def on_message(message):
-    await message.channel.send(f'{message.author.mention} 디엠을 전송할게요!')
-    await message.author.send('디엠이 도착했습니다.')
+async def dmtest(ctx):
+    await ctx.send(f'{ctx.author.mention} 디엠을 전송할게요!')
+    await cyx.author.send('디엠이 도착했습니다.')
 
 @bot.command(name='ㅊ')
-async def chat(ctx):
+async def chat1(ctx):
     await ctx.send('축하해요!')
 
 @bot.command(name='뻘짓')
-async def chat(ctx):
+async def bchat(ctx):
     await ctx.send('<:PGB:763772550164512778>')
 
 @bot.command(name='뻘짓1')
-async def chat(ctx):
+async def bchat1(ctx):
     await ctx.send('https://tenor.com/view/fortnite-thumbs-up-banana-thumbs-up-gif-14096917')
 
 @bot.command(name='뻘짓2')
-async def chat(ctx):
+async def bchat2(ctx):
     await ctx.send('<:emoji_10:729974967181246467>\n<:emoji_11:729975033426083911>\n<:emoji_12:729975086383235102>')
 
 @bot.command(name='뻘짓3')
-async def chat(ctx):
+async def bchat3(ctx):
     await ctx.send('https://tenor.com/view/star-wars-admiral-ackbar-its-atrap-trap-warning-gif-5199311')
 
 @bot.command(name='뻘짓4')
-async def chat(ctx):
+async def bchat4(ctx):
     await ctx.send('https://tenor.com/view/knight-solar-praise-the-sun-gif-5316154')
 
 @bot.command(name='뻘짓5')
-async def chat(ctx):
+async def bchat5(ctx):
     await ctx.send('<a:0GU1:762693900611616769>')
 
 @bot.command(name='뻘짓6')
-async def chat(ctx):
+async def bchat6(ctx):
     await ctx.send('<:BOOM:796652353909555210>')
 
 @bot.command(name='연유병')
-async def chat(ctx):
+async def yyb(ctx):
     await ctx.send('도수방 최고미인이자 아이돌, 전지전능하신 유병님을 찬양하세요!')
 
 

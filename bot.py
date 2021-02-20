@@ -34,13 +34,45 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     await member.guild.system_channel.send(f'{member.mention} 님이 {member.guild.name} 서버에 입장하셨습니다')
-
+    channel = client.get_channel(790553978122403840)
+    if member.bot == False:
+        bot = "유저"
+    else:
+        bot = "봇"
+    date = datetime.datetime.utcfromtimestamp(((int(member.id) >> 22) + 1420070400000) / 1000)
+    embed = discord.Embed(color=0xff0000, title=f'{member.name}님이 서버에 입장하셨습니다')
+    embed.add_field(name="**이름**", value=member.name, inline=False)
+    embed.add_field(name="**서버내 별명**", value=member.display_name)
+    embed.add_field(name="**디스코드 가입일**", value=str(date.year) + "년" + str(date.month) + "월" + str(date.day) + "일",
+                    inline=False)
+    embed.add_field(name="**아이디**", value=member.id)
+    embed.add_field(name="**최상위 역할**", value=member.top_role.mention, inline=False)
+    embed.add_field(name="**봇**", value=bot)
+    embed.set_thumbnail(url=member.avatar_url)
+    await channel.send(embed=embed)
+    return
 
 
 @bot.event
 async def on_member_remove(member):
     await member.guild.system_channel.send(f'{member.mention} 님이 {member.guild.name} 서버에서 퇴장하셨습니다')
-
+    channel = client.get_channel(790553978122403840)
+    if member.bot == False:
+        bot = "유저"
+    else:
+        bot = "봇"
+    date = datetime.datetime.utcfromtimestamp(((int(member.id) >> 22) + 1420070400000) / 1000)
+    embed = discord.Embed(color=0xff0000, title=f'{member.name}님이 서버에서 퇴장하셨습니다')
+    embed.add_field(name="**이름**", value=member.name, inline=False)
+    embed.add_field(name="**서버내 별명**", value=member.display_name)
+    embed.add_field(name="**디스코드 가입일**", value=str(date.year) + "년" + str(date.month) + "월" + str(date.day) + "일",
+                    inline=False)
+    embed.add_field(name="**아이디**", value=member.id)
+    embed.add_field(name="**최상위 역할**", value=member.top_role.mention, inline=False)
+    embed.add_field(name="**봇**", value=bot)
+    embed.set_thumbnail(url=member.avatar_url)
+    await channel.send(embed=embed)
+    return
 
 
 

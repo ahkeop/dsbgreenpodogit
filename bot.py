@@ -17,6 +17,8 @@ bot = commands.Bot(command_prefix=['청포도 ', 'ㅊ', '청'], intents=intents)
 # print(client.user.name)
 # print(client.user.id)
 
+print("봇 이름:",client.user.name,"봇 아이디:",client.user.id,"봇 버전:",discord.__version__)
+
 
 playing = cycle(["청포도 도움말을 입력하시면 사용방법을 알려드립니다!", "청포도 도움말을 입력하시면 사용방법을 알려드립니다!", "적포도 게임하지 말라고", "청포도 도움말을 입력하시면 사용방법을 알려드립니다!"])
 

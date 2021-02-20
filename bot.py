@@ -4,16 +4,17 @@ import asyncio
 from itertools import cycle
 import datetime
 import random
-import os
 
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=['청포도 ', 'ㅊ', '청'], intents=intents)
 
 
-
-
-
+# @client.event
+# async def on_ready():
+# print('Is any one there?')
+# print(client.user.name)
+# print(client.user.id)
 
 
 playing = cycle(["청포도 도움말을 입력하시면 사용방법을 알려드립니다!", "청포도 도움말을 입력하시면 사용방법을 알려드립니다!", "적포도 게임하지 말라고", "청포도 도움말을 입력하시면 사용방법을 알려드립니다!"])
@@ -23,6 +24,11 @@ async def change_status():
     await bot.change_presence(activity=discord.Game(next(playing)))
 
 
+@bot.event
+async def on_ready():
+    print(bot.user.id)
+    print("ready")
+    change_status.start()
 
 @bot.event
 async def on_member_join(member):
@@ -70,7 +76,7 @@ async def dsbrule(ctx):
                     "[🍪 도트러 수다방 쿠키런 채팅방](https://open.kakao.com/o/gDESjkUc)", inline=False)
     await ctx.send(embed=embed)
 
-"""
+
 #----------------이 밑은 채널안내-------------------------
 
 @bot.group(invoke_without_command=True)
@@ -156,7 +162,7 @@ async def 기타(ctx):
     await ctx.channel.send(embed=embed)
 
 #-----------------------------------------
-"""
+
 
 @bot.command(name='도움말')
 async def dsbrule(message):

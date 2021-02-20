@@ -524,5 +524,4 @@ async def on_command_error(ctx, error):
     else:
         await ctx.send(f"짜잔 오류가났습니다```\n{error}\n```")
 
-#client.run("Nzc4MjIyMDUwNzc4MDIxODk4.X7O1ww.yoZIxeiSaxvjNOStf6qTOtQYGlI")
-bot.run("Nzc4MjIyMDUwNzc4MDIxODk4.X7O1ww.yoZIxeiSaxvjNOStf6qTOtQYGlI")
+bot.run(os.environ['token'])

@@ -507,7 +507,7 @@ async def advertisement(ctx):
 @bot.command(name='디엠테스트')
 async def dmtest(ctx):
     await ctx.send(f'{ctx.author.mention} 디엠을 전송할게요!')
-    await cyx.author.send('디엠이 도착했습니다.')
+    await ctx.author.send('디엠이 도착했습니다.')
 
 @bot.command(name='ㅊ')
 async def chat1(ctx):
@@ -540,6 +540,12 @@ async def bchat5(ctx):
 @bot.command(name='뻘짓6')
 async def bchat6(ctx):
     await ctx.send('<:BOOM:796652353909555210>')
+
+
+@bot.command(name='뻘짓7')
+async def bcchat7(ctx):
+    await ctx.send('<a:0WTH:817244597410332684>')
+
 
 @bot.command(name='연유병')
 async def yyb(ctx):
